@@ -14,7 +14,7 @@ export function useMovies(query) {
         seterr("");
         setloading(true);
         let data = await fetch(
-          `http://www.omdbapi.com/?apikey=${API}&s=${query}`,
+          `https://www.omdbapi.com/?apikey=${API}&s=${query}`,
           { signal: controller.signal }
         );
         if (!data.ok)
