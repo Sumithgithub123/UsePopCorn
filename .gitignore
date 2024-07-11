@@ -10,7 +10,7 @@
 
 # production
 /build
-src/App-v1
+src/App-v1.js
 src/App-v2
 src/App-v3
 src/App-v4
