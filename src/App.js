@@ -135,7 +135,7 @@ function SelectedMovie({ watched, onaddwatched, closeselected, selectedId }) {
     async function getmoviedetails() {
       setloading(true);
       let data = await fetch(
-        `http://www.omdbapi.com/?apikey=${API}&i=${selectedId}`
+        `https://www.omdbapi.com/?apikey=${API}&i=${selectedId}`
       );
       let res = await data.json();
       setmovie(res);
