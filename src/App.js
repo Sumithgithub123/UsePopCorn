@@ -156,7 +156,7 @@ function SelectedMovie({ watched, onaddwatched, closeselected, selectedId }) {
 
   return (
     <div className="details">
-      {!movie || loading ? (
+      {Object.keys(movie).length < 1 || loading ? (
         <Loading />
       ) : (
         <>
