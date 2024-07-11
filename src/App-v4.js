@@ -10,6 +10,11 @@ const average = (arr) =>
 const API = "3eaf94b3";
 
 export default function App() {
+  // const [watched, setWatched] = useState([]);
+  // const [watched, setWatched] = useState(() => {
+  //   const value = localStorage.getItem("watched");
+  //   return JSON.parse(value);
+  // });
   const [watched, setWatched] = useLocalStorageState([], "watched");
   const [query, setQuery] = useState("");
   const [selectedId, setselectedId] = useState(null);
@@ -32,6 +37,8 @@ export default function App() {
 
   function handleaddwatched(movie) {
     setWatched((watched) => [...watched, movie]);
+
+    // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
   }
 
   function handleremove(id) {
@@ -40,6 +47,10 @@ export default function App() {
     });
     setWatched(newwatch);
   }
+
+  // useEffect(() => {
+  //   localStorage.setItem("watched", JSON.stringify(watched));
+  // }, [watched]);
 
   return (
     <>
@@ -258,7 +269,21 @@ function Logo() {
 }
 
 function Search({ query, setQuery }) {
+  // useEffect(()=>{
+  //  async function getdata(){
+  //    let data = await fetch(`http://www.omdbapi.com/?apikey=${API}&s=${query}`)
+  //    let res = await data.json()
+  //      setMovies(res.Search)
+  //   }
+  //   getdata()
+  // },[query,setMovies])
+
   const inputelement = useRef(null);
+
+  // useEffect(() => {
+  //   const element = document.querySelector(".search");
+  //   element.focus();
+  // }, []);
 
   useEffect(() => {
     inputelement.current.focus();
@@ -269,6 +294,18 @@ function Search({ query, setQuery }) {
     inputelement.current.focus();
     setQuery("");
   }
+
+  // useEffect(() => {
+  //   document.addEventListener("keydown", (e) => {
+  //     if (document.activeElement === inputelement.current) {
+  //       return;
+  //     }
+  //     if (e.code === "Enter") {
+  //       inputelement.current.focus();
+  //       setQuery("");
+  //     }
+  //   });
+  // }, [setQuery]);
 
   useKey("Enter", keys);
 
@@ -300,6 +337,22 @@ function Box({ children }) {
     </div>
   );
 }
+
+// function Watchedbox({ children }) {
+//   const [isOpen2, setIsOpen2] = useState(true);
+
+//   return (
+//     <div className="box">
+//       <button
+//         className="btn-toggle"
+//         onClick={() => setIsOpen2((open) => !open)}
+//       >
+//         {isOpen2 ? "–" : "+"}
+//       </button>
+//       {isOpen2 && children}
+//     </div>
+//   );
+// }
 
 function MovieList({ selected, setselectedId, movies }) {
   return (
