@@ -10,10 +10,11 @@
 
 # production
 /build
-/src/App-v1.js
-/src/App-v2
-/src/App-v3
-/src/App-v4
+src/App-v1
+src/App-v2
+src/App-v3
+src/App-v4
+src/index-v1
 
 # misc
 .DS_Store
