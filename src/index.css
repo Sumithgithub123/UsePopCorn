@@ -16,6 +16,12 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  display: none;
+  width: 5px;
+  color: #212529;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -56,9 +62,6 @@ body {
   border-radius: 0.9rem;
   overflow: scroll;
   position: relative;
-}
-.box::-webkit-scrollbar {
-  visibility: hidden;
 }
 
 .loader {
