@@ -58,7 +58,7 @@ body {
   position: relative;
 }
 .box::-webkit-scrollbar {
-  display: none;
+  visibility: hidden;
 }
 
 .loader {
